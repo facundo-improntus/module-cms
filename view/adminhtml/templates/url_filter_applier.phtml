@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © PassKeeper, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \PassKeeper\Backend\Block\Template */
+/** @var \PassKeeper\Framework\Escaper $escaper */
+?>
+<script type="text/x-passkeeper-init">
+    {
+        "*": {
+            "PassKeeper_Ui/js/grid/url-filter-applier": {
+                "listingNamespace": "<?= $escaper->escapeJs($block->getListingNamespace()) ?>"
+            }
+        }
+    }
+</script>

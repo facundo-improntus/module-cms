@@ -1,0 +1,34 @@
+{
+    "name": "p4sskeeper/module-cms",
+    "description": "N/A",
+    "type": "passkeeper-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "100.0.0",
+    "require": {
+        "php": "~8.1.0",
+        "p4sskeeper/framework": "100.0.*",
+        "p4sskeeper/module-backend": "100.0.*",
+        "p4sskeeper/module-email": "100.0.*",
+        "p4sskeeper/module-media-storage": "100.0.*",
+        "p4sskeeper/module-store": "100.0.*",
+        "p4sskeeper/module-theme": "100.0.*",
+        "p4sskeeper/module-ui": "100.0.*",
+        "p4sskeeper/module-variable": "100.0.*",
+        "p4sskeeper/module-widget": "100.0.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "PassKeeper\\Cms\\": ""
+        }
+    }
+}
+

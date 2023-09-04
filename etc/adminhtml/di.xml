@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © PassKeeper, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:passkeeper:framework:ObjectManager/etc/config.xsd">
+    <preference for="PassKeeper\Ui\Component\Wysiwyg\ConfigInterface" type="PassKeeper\Cms\Model\Wysiwyg\Config"/>
+    <type name="PassKeeper\Cms\Block\Adminhtml\Page\Grid\Renderer\Action\UrlBuilder">
+        <arguments>
+            <argument name="frontendUrlBuilder" xsi:type="object">PassKeeper\Framework\Url</argument>
+        </arguments>
+    </type>
+    <type name="PassKeeper\Cms\ViewModel\Page\Grid\UrlBuilder">
+        <arguments>
+            <argument name="frontendUrlBuilder" xsi:type="object">PassKeeper\Framework\Url</argument>
+        </arguments>
+    </type>
+    <type name="PassKeeper\Cms\Model\Wysiwyg\CompositeConfigProvider">
+        <arguments>
+            <argument name="variablePluginConfigProvider" xsi:type="array">
+                <item name="default" xsi:type="string">PassKeeper\Variable\Model\Variable\ConfigProvider</item>
+            </argument>
+            <argument name="widgetPluginConfigProvider" xsi:type="array">
+                <item name="default" xsi:type="string">PassKeeper\Widget\Model\Widget\Config</item>
+            </argument>
+            <argument name="wysiwygConfigPostProcessor" xsi:type="array">
+                <item name="default" xsi:type="string">PassKeeper\Cms\Model\Wysiwyg\DefaultConfigProvider</item>
+            </argument>
+            <argument name="galleryConfigProvider" xsi:type="array">
+                <item name="default" xsi:type="string">PassKeeper\Cms\Model\Wysiwyg\Gallery\DefaultConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="PassKeeper\Cms\Model\Config\Source\Wysiwyg\Editor">
+        <arguments>
+            <argument name="adapterOptions" xsi:type="array">
+                <item name="tinymce" xsi:type="array">
+                    <item name="value" xsi:type="string">mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter</item>
+                    <item name="label" xsi:type="string" translatable="true">TinyMCE 5</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="PassKeeper\Cms\Model\Wysiwyg\Gallery\DefaultConfigProvider">
+        <arguments>
+            <argument name="currentTreePath" xsi:type="const">\PassKeeper\Cms\Model\Wysiwyg\Config::IMAGE_DIRECTORY</argument>
+            <argument name="windowSize" xsi:type="array">
+                <item name="height" xsi:type="number">600</item>
+                <item name="width" xsi:type="number">1000</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="PassKeeper\Cms\Ui\Component\Form\Field\PageLayout" type="PassKeeper\Ui\Component\Form\Field\DefaultValue">
+        <arguments>
+            <argument name="path" xsi:type="string">web/default_layouts/default_cms_layout</argument>
+        </arguments>
+    </virtualType>
+    <type name="PassKeeper\Cms\Model\Wysiwyg\Config">
+        <arguments>
+            <argument name="variableConfig" xsi:type="object">PassKeeper\Variable\Model\Variable\Config\Proxy</argument>
+        </arguments>
+    </type>
+</config>

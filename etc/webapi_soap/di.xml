@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © PassKeeper, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:passkeeper:framework:ObjectManager/etc/config.xsd">
+    <type name="PassKeeper\Cms\Api\PageRepositoryInterface">
+        <plugin name="aclCheck" type="PassKeeper\Cms\Observer\PageAclPlugin" sortOrder="100" />
+    </type>
+</config>
